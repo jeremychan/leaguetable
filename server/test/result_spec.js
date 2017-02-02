@@ -1,6 +1,7 @@
 import {expect} from 'chai';
 
 import Result from '../src/result'
+import Team from '../src/team'
 
 describe('result construction logic', () => {
 
@@ -56,6 +57,9 @@ describe('result construction logic', () => {
 
     describe('construction', () => {
 
+        const teamA = new Team ('AB', 'CD');
+        const teamB = new Team ('EF', 'GH');
+
         it('construct result object', () => {
             const input = 'AB CD 2 - 1 EF GH';
             const result = new Result(input);
@@ -73,7 +77,9 @@ describe('result construction logic', () => {
                         p2: 'GH'
                     },
                     score: 1
-                }
+                },
+                winner: teamA,
+                loser: teamB
             });
         });
 
@@ -94,7 +100,9 @@ describe('result construction logic', () => {
                         p2: 'GH'
                     },
                     score: 1
-                }
+                },
+                winner: teamA,
+                loser: teamB
             });
         });
 
@@ -115,7 +123,9 @@ describe('result construction logic', () => {
                         p2: 'GH'
                     },
                     score: 1
-                }
+                },
+                winner: teamA,
+                loser: teamB
             });
         });
     });

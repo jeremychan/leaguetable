@@ -6,4 +6,8 @@ export default class Team {
         this.p1 = first < second ? first : second;
         this.p2 = first < second ? second : first;
     }
+
+    toString () {
+        return this.p1 + ' '  + this.p2;
+    }
 }
