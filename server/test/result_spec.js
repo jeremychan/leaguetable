@@ -61,13 +61,59 @@ describe('result construction logic', () => {
             const result = new Result(input);
             expect(result).to.deep.equal({
                 home: {
-                    p1: 'AB',
-                    p2: 'CD',
+                    team: {
+                        p1: 'AB',
+                        p2: 'CD'
+                    },
                     score: 2
                 },
                 away: {
-                    p1: 'EF',
-                    p2: 'GH',
+                    team: {
+                        p1: 'EF',
+                        p2: 'GH'
+                    },
+                    score: 1
+                }
+            });
+        });
+
+        it('construct result object with team members in alphabetical order', () => {
+            const input = 'CD AB 2 - 1 EF GH';
+            const result = new Result(input);
+            expect(result).to.deep.equal({
+                home: {
+                    team: {
+                        p1: 'AB',
+                        p2: 'CD'
+                    },
+                    score: 2
+                },
+                away: {
+                    team: {
+                        p1: 'EF',
+                        p2: 'GH'
+                    },
+                    score: 1
+                }
+            });
+        });
+
+        it('construct result object with team members in upper case', () => {
+            const input = 'ab cd 2 - 1 EF GH';
+            const result = new Result(input);
+            expect(result).to.deep.equal({
+                home: {
+                    team: {
+                        p1: 'AB',
+                        p2: 'CD'
+                    },
+                    score: 2
+                },
+                away: {
+                    team: {
+                        p1: 'EF',
+                        p2: 'GH'
+                    },
                     score: 1
                 }
             });

@@ -1,16 +1,19 @@
+import Team from '../src/team'
+
 export default class Result {
 
     constructor(input) {
 
+        const re = /^([^\s]+?)\s+([^\s]+?)\s+(\d+?)\s*-\s*(\d+?)\s+([^\s]+?)\s+([^\s]+)$/;
+        const result = re.exec(input);
+
         this.home = {
-            p1: 'AB',
-            p2: 'CD',
-            score: 2
+            team: new Team(result[1], result[2]),
+            score: Number(result[3])
         };
         this.away = {
-            p1: 'EF',
-            p2: 'GH',
-            score: 1
+            team: new Team(result[5], result[6]),
+            score: Number(result[4])
         }
     }
 }
