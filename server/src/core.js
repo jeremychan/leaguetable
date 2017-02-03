@@ -1,8 +1,4 @@
-import {List} from 'immutable';
-
-export function setResults(state, results) {
-    return state.set('results', List(results));
-}
+import {Map, List} from 'immutable';
 
 export function addResult(state, result) {
     const home = result.homeTeam;
@@ -13,3 +9,8 @@ export function addResult(state, result) {
         .updateIn(['standing', away.toString(), 'played'], 0, played => played + 1)
         .updateIn(['standing', winner.toString(), 'won'], 0, won => won + 1)
 }
+
+export const INITIAL_STATE = Map({
+    standing: Map(),
+    results: List()
+});

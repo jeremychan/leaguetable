@@ -7,21 +7,6 @@ import Team from '../src/team';
 
 describe('application logic', () => {
 
-    describe('setResults', () => {
-
-        it('sets the results to the state', () => {
-            const result1 = new Result('AB CD 2 - 1 EF GH');
-            const result2 = new Result('EF GH 3 - 2 IJ KL');
-            const state = Map();
-            const results = [result1, result2];
-            const nextState = setResults(state, results);
-            expect(nextState).to.equal(Map({
-                results: List.of(result1, result2)
-            }));
-        });
-
-    });
-
     describe('addResult', () => {
 
         it('adds the result object to results', () => {
@@ -45,12 +30,12 @@ describe('application logic', () => {
             expect(nextState).to.equal(Map({
                 results: List.of(result1),
                 standing: Map({
-                    'AB CD': Map ({
+                    'AB CD': Map({
                         played: 1,
                         won: 1
                     }),
-                    'EF GH': Map ({
-                        played: 1,
+                    'EF GH': Map({
+                        played: 1
                     }),
                 })
             }));
